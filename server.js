@@ -4,6 +4,8 @@ import routes from "./src/routes/postsRouts.js";
 
 // app representa o servidor 
 const app = express();
+// tornar a pasta publica para qualquer pessoa poder acessar as imagens 
+app.use(express.static("upload  ")); // servir arquivos estáticos 
 routes(app);
 
 app.listen(3000, () => {

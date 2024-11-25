@@ -1,4 +1,5 @@
 // camada que faz a conexao com o db
+import { ObjectId } from "mongodb";
 import conectarAoBanco from "../config/dbconfig.js";
 
 
@@ -16,4 +17,10 @@ export async function criarPost(novoPost){
     const colecao =  db.collection("posts");
     // retornei o novo post
     return colecao.insertOne(novoPost);    //insertOne é da documentação do mongo
+}
+export async function atualizarPost(id, novoPost){
+    const db = conexao.db("instabytes");
+    const colecao =  db.collection("posts");
+    const objID = ObjectId.createFromHexString(id);  // documentação mongo
+    return colecao.updateOne({_id: new ObjectId(objID)}, {$set:novoPost});   //insertOne é da documentação do mongo
 }
