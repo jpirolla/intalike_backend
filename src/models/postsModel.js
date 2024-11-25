@@ -1,4 +1,5 @@
 // camada que faz a conexao com o db
+import "dotenv/config";
 import { ObjectId } from "mongodb";
 import conectarAoBanco from "../config/dbconfig.js";
 
